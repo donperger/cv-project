@@ -1,5 +1,6 @@
 import './App.css';
 import React, { Component } from 'react';
+import GeneralInfo from './components/GeneralInfo';
 
 class App extends Component {
   constructor() {
@@ -35,6 +36,7 @@ class App extends Component {
     return (
       <div className="App">
         Hello from App!
+        <GeneralInfo />
       </div>
     );
   }

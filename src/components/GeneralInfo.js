@@ -1,47 +1,41 @@
-import React, { Component } from "react";
-import editIcon from '../images/edit-svgrepo-com.svg';
+/* eslint-disable require-jsdoc */
+import React, { Component } from 'react';
 import '../styles/GeneralInfo.css';
-import uniqid from 'uniqid';
 
 class GeneralInfo extends Component {
   constructor(props) {
-    super(props)
-
-    this.state = {
-      generalInfo: [
-        {
-          fieldName: 'Name',
-          fieldValue: 'Jacob Gipsz',
-          id: uniqid()
-        },
-        {
-          fieldName: 'E-mail',
-          fieldValue: 'jack.gipsz@example.com',
-          id: uniqid()
-        },
-        {
-          fieldName: 'Phone Number',
-          fieldValue: '+36234568945',
-          id: uniqid()
-        }
-      ]
-    }
+    super(props);
   }
 
   render() {
     return (
-      <div>
-        <ul>General Info
-          <button>
-            <img className="edit-img" src={editIcon} alt='Edit icon' />
-          </button>
-        </ul>
-        {this.state.generalInfo.map((info) => {
-          return <li key={info.id}>{info.fieldName}: {info.fieldValue}</li>
-        })}
-      </div>
-    )
+      <form className="general-info-form">
+        <legend>General information</legend>
+        <div className="name-cont">
+          <label>
+            Name
+            <input type="text" id="name" />
+          </label>
+        </div>
+
+        <div className="email-cont">
+          <label>
+            E-mail
+            <input type="text" id="email" />
+          </label>
+        </div>
+
+        <div className="phone-cont">
+          <label>
+            Phone Number
+            <input type="text" id="phone" />
+          </label>
+        </div>
+
+        <button>Add info</button>
+      </form>
+    );
   }
 }
 
-export default GeneralInfo
+export default GeneralInfo;

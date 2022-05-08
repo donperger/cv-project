@@ -79,7 +79,7 @@ class GeneralInfo extends Component {
           </label>
         </div>
 
-        <button>Add</button>
+        <button>Submit change</button>
       </form>
     );
   }

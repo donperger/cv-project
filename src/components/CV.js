@@ -13,7 +13,7 @@ class Cv extends Component {
         <div className="cv-general-info">
           <ul>
             General Info
-            <button>
+            <button onClick={this.props.editGenInfo}>
               <img className="edit-img" src={editIcon}></img>
             </button>
           </ul>

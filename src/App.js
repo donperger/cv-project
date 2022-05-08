@@ -9,6 +9,7 @@ class App extends Component {
     super();
 
     this.state = {
+      showGeneralInfoForm: false,
       generalInfo: [
         {
           fieldName: 'Name',
@@ -50,11 +51,47 @@ class App extends Component {
     };
   }
 
+  displayGenInfoForm = () => {
+    this.setState({ showGeneralInfoForm: !this.state.showGeneralInfoForm });
+  };
+
+  updateGenInfo = (name, email, phoneNum) => {
+    this.setState({
+      generalInfo: [
+        {
+          fieldName: 'Name',
+          fieldValue: name,
+          id: this.state.generalInfo[0].id,
+        },
+        {
+          fieldName: 'E-mail',
+          fieldValue: email,
+          id: this.state.generalInfo[1].id,
+        },
+        {
+          fieldName: 'Phone Number',
+          fieldValue: phoneNum,
+          id: this.state.generalInfo[2].id,
+        },
+      ],
+    });
+  };
+
   render() {
     return (
       <div className="App">
-        <GeneralInfo />
-        <Cv generalInfo={this.state.generalInfo} />
+        {this.state.showGeneralInfoForm && (
+          <GeneralInfo
+            name={this.state.generalInfo[0]}
+            email={this.state.generalInfo[1]}
+            phoneNum={this.state.generalInfo[2]}
+            updateGenInfo={this.updateGenInfo}
+          />
+        )}
+        <Cv
+          generalInfo={this.state.generalInfo}
+          editGenInfo={this.displayGenInfoForm}
+        />
       </div>
     );
   }

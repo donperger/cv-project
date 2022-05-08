@@ -86,6 +86,7 @@ class App extends Component {
             email={this.state.generalInfo[1]}
             phoneNum={this.state.generalInfo[2]}
             updateGenInfo={this.updateGenInfo}
+            hideForm={this.displayGenInfoForm}
           />
         )}
         <Cv

@@ -34,6 +34,7 @@ class GeneralInfo extends Component {
       this.state.email,
       this.state.phone
     );
+    this.props.hideForm();
   };
 
   render() {

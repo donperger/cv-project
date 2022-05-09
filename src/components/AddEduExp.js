@@ -31,7 +31,7 @@ class EduExp extends Component {
 
   submitStudies = (e) => {
     e.preventDefault();
-    if (this.props.isUpdate) {
+    if (!this.props.isUpdate) {
       this.props.addStudy(
         this.state.nameOfSchool,
         this.state.titleOfStudy,
@@ -75,10 +75,7 @@ class EduExp extends Component {
           setEndDate={this.setEndDate}
         />
         <div className="study-date"></div>
-        <button className="submit-study-btn">
-          {!this.props.isUpdate && 'Add study'}
-          {this.props.isUpdate && 'Update study'}
-        </button>
+        <button className="submit-study-btn">Add study</button>
       </form>
     );
   }

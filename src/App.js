@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import GeneralInfo from './components/GeneralInfo';
 import Cv from './components/CV';
 import uniqid from 'uniqid';
-import EduExp from './components/EducExp';
+import AddEduExp from './components/AddEduExp';
 
 class App extends Component {
   constructor() {
@@ -29,6 +29,8 @@ class App extends Component {
         },
       ],
       showEduExpForm: false,
+      isEduExpUpdate: false,
+      editEducationId: undefined,
       eduExp: [
         {
           id: uniqid(),
@@ -81,7 +83,7 @@ class App extends Component {
     });
   };
 
-  displayEduExpForm = () => {
+  displayAddEduExpForm = (e) => {
     this.setState({ showEduExpForm: !this.state.showEduExpForm });
   };
 
@@ -112,10 +114,9 @@ class App extends Component {
             />
           )}
           {this.state.showEduExpForm && (
-            <EduExp
+            <AddEduExp
               addStudy={this.addEduExp}
-              isUpdate={false}
-              hideForm={this.displayEduExpForm}
+              hideForm={this.displayAddEduExpForm}
             />
           )}
         </div>
@@ -124,7 +125,7 @@ class App extends Component {
           generalInfo={this.state.generalInfo}
           editGenInfo={this.displayGenInfoForm}
           eduInfo={this.state.eduExp}
-          displayEduExpForm={this.displayEduExpForm}
+          displayEduExpForm={this.displayAddEduExpForm}
         />
       </div>
     );

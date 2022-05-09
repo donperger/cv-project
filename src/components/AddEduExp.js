@@ -31,6 +31,7 @@ class AddEduExp extends Component {
 
   submitStudies = (e) => {
     e.preventDefault();
+    console.log(this.state.endDate);
     this.props.addStudy(
       this.state.nameOfSchool,
       this.state.titleOfStudy,

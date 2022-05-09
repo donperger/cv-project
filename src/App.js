@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import GeneralInfo from './components/GeneralInfo';
 import Cv from './components/CV';
 import uniqid from 'uniqid';
+import EduExp from './components/EducExp';
 
 class App extends Component {
   constructor() {
@@ -27,18 +28,21 @@ class App extends Component {
           id: uniqid(),
         },
       ],
+      showEduExpForm: false,
       eduExp: [
         {
+          id: uniqid(),
           schoolName: 'University of Technology',
           titleOfStudy: 'Computer science',
           dateOfStudy: {
-            start: new Date(2016, 9),
-            end: new Date(2020, 6),
+            start: new Date(2016, 8),
+            end: new Date(2020, 5),
           },
         },
       ],
       practicalExp: [
         {
+          id: uniqid(),
           companyName: 'IT Giants',
           position: 'Junior web developer',
           mainTask: 'Create new web applications',
@@ -77,21 +81,50 @@ class App extends Component {
     });
   };
 
+  displayEduExpForm = () => {
+    this.setState({ showEduExpForm: !this.state.showEduExpForm });
+  };
+
+  addEduExp = (school, study, startDate, endDate) => {
+    const newEduExp = {
+      id: uniqid(),
+      schoolName: school,
+      titleOfStudy: study,
+      dateOfStudy: {
+        start: startDate,
+        end: endDate,
+      },
+    };
+    this.setState({ eduExp: [...this.state.eduExp, newEduExp] });
+  };
+
   render() {
     return (
       <div className="App">
-        {this.state.showGeneralInfoForm && (
-          <GeneralInfo
-            name={this.state.generalInfo[0]}
-            email={this.state.generalInfo[1]}
-            phoneNum={this.state.generalInfo[2]}
-            updateGenInfo={this.updateGenInfo}
-            hideForm={this.displayGenInfoForm}
-          />
-        )}
+        <div className="forms">
+          {this.state.showGeneralInfoForm && (
+            <GeneralInfo
+              name={this.state.generalInfo[0]}
+              email={this.state.generalInfo[1]}
+              phoneNum={this.state.generalInfo[2]}
+              updateGenInfo={this.updateGenInfo}
+              hideForm={this.displayGenInfoForm}
+            />
+          )}
+          {this.state.showEduExpForm && (
+            <EduExp
+              addStudy={this.addEduExp}
+              isUpdate={false}
+              hideForm={this.displayEduExpForm}
+            />
+          )}
+        </div>
+
         <Cv
           generalInfo={this.state.generalInfo}
           editGenInfo={this.displayGenInfoForm}
+          eduInfo={this.state.eduExp}
+          displayEduExpForm={this.displayEduExpForm}
         />
       </div>
     );

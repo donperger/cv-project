@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import MonthPicker from './DatePicker';
+import MonthPicker from './MonthPicker';
 
 class AddEduExp extends Component {
   constructor(props) {
@@ -31,7 +31,6 @@ class AddEduExp extends Component {
 
   submitStudies = (e) => {
     e.preventDefault();
-    console.log(this.state.endDate);
     this.props.addStudy(
       this.state.nameOfSchool,
       this.state.titleOfStudy,

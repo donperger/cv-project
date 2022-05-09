@@ -31,7 +31,10 @@ class Cv extends Component {
         <div className="edu-exp-info">
           <ul>
             Education
-            <button>
+            <button
+              className="add-btn"
+              onClick={this.props.displayAddEduExpForm}
+            >
               <img className="add-img" src={addIcon}></img>
             </button>
           </ul>
@@ -40,7 +43,11 @@ class Cv extends Component {
               <li key={info.id}>
                 <div className="school-name">
                   {info.schoolName}
-                  <button>
+                  <button
+                    className="edit-btn"
+                    id={info.id}
+                    onClick={this.props.displayEditEduExpForm}
+                  >
                     <img className="edit-img" src={editIcon}></img>
                   </button>
                 </div>

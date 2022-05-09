@@ -4,6 +4,7 @@ import GeneralInfo from './components/GeneralInfo';
 import Cv from './components/CV';
 import uniqid from 'uniqid';
 import AddEduExp from './components/AddEduExp';
+import UpdateEduExp from './components/UpdateEduExp ';
 
 class App extends Component {
   constructor() {
@@ -30,7 +31,7 @@ class App extends Component {
       ],
       showAddEduExpForm: false,
       isEduExpUpdate: false,
-      editEducationId: undefined,
+      eduExpToUpdate: {},
       eduExp: [
         {
           id: uniqid(),
@@ -100,6 +101,36 @@ class App extends Component {
     this.setState({ eduExp: [...this.state.eduExp, newEduExp] });
   };
 
+  displayEditEduExpForm = (e) => {
+    this.setState({ isEduExpUpdate: !this.state.isEduExpUpdate });
+    const eduToEdit = this.getEduExp(e.currentTarget.id)[0];
+    this.setState({ eduExpToUpdate: eduToEdit });
+  };
+
+  hideEditEduExpForm = () => {
+    this.setState({ isEduExpUpdate: !this.state.isEduExpUpdate });
+    this.setState({ eduExpToUpdate: '' });
+  };
+
+  getEduExp = (id) => {
+    return this.state.eduExp.filter((item) => item.id === id);
+  };
+
+  updadateEduExp = (eduInfo) => {
+    const eduExpArray = this.state.eduExp;
+    eduInfo.id = this.state.eduExpToUpdate.id;
+
+    const updatedExoEduArray = eduExpArray.map((eduExp) => {
+      if (eduExp.id === this.state.eduExpToUpdate.id) {
+        return eduInfo;
+      } else {
+        return eduExp;
+      }
+    });
+
+    this.setState({ eduExp: updatedExoEduArray });
+  };
+
   render() {
     return (
       <div className="App">
@@ -119,6 +150,16 @@ class App extends Component {
               hideForm={this.displayAddEduExpForm}
             />
           )}
+          {this.state.isEduExpUpdate && (
+            <UpdateEduExp
+              school={this.state.eduExpToUpdate.schoolName}
+              study={this.state.eduExpToUpdate.titleOfStudy}
+              startDate={this.state.eduExpToUpdate.dateOfStudy.start}
+              endDate={this.state.eduExpToUpdate.dateOfStudy.end}
+              updateStudy={this.updadateEduExp}
+              hideForm={this.hideEditEduExpForm}
+            />
+          )}
         </div>
 
         <Cv
@@ -126,6 +167,7 @@ class App extends Component {
           editGenInfo={this.displayGenInfoForm}
           eduInfo={this.state.eduExp}
           displayAddEduExpForm={this.displayAddEduExpForm}
+          displayEditEduExpForm={this.displayEditEduExpForm}
         />
       </div>
     );

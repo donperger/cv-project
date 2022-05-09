@@ -47,7 +47,7 @@ class AddEduExp extends Component {
         className="educational-experience-form"
         onSubmit={this.submitStudies}
       >
-        <legend>Educational experience</legend>
+        <legend>Add educational experience</legend>
         <div className="school-name">
           <label>
             Name of school

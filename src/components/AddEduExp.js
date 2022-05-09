@@ -31,14 +31,13 @@ class AddEduExp extends Component {
 
   submitStudies = (e) => {
     e.preventDefault();
-    if (!this.props.isUpdate) {
-      this.props.addStudy(
-        this.state.nameOfSchool,
-        this.state.titleOfStudy,
-        this.state.startDate,
-        this.state.endDate
-      );
-    }
+    this.props.addStudy(
+      this.state.nameOfSchool,
+      this.state.titleOfStudy,
+      this.state.startDate,
+      this.state.endDate
+    );
+
     this.props.hideForm();
   };
 

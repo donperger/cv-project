@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import MonthPicker from './DatePicker';
 
-class EduExp extends Component {
+class AddEduExp extends Component {
   constructor(props) {
     super(props);
 
@@ -81,4 +81,4 @@ class EduExp extends Component {
   }
 }
 
-export default EduExp;
+export default AddEduExp;

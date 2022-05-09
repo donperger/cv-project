@@ -28,7 +28,7 @@ class App extends Component {
           id: uniqid(),
         },
       ],
-      showEduExpForm: false,
+      showAddEduExpForm: false,
       isEduExpUpdate: false,
       editEducationId: undefined,
       eduExp: [
@@ -83,8 +83,8 @@ class App extends Component {
     });
   };
 
-  displayAddEduExpForm = (e) => {
-    this.setState({ showEduExpForm: !this.state.showEduExpForm });
+  displayAddEduExpForm = () => {
+    this.setState({ showAddEduExpForm: !this.state.showAddEduExpForm });
   };
 
   addEduExp = (school, study, startDate, endDate) => {
@@ -113,7 +113,7 @@ class App extends Component {
               hideForm={this.displayGenInfoForm}
             />
           )}
-          {this.state.showEduExpForm && (
+          {this.state.showAddEduExpForm && (
             <AddEduExp
               addStudy={this.addEduExp}
               hideForm={this.displayAddEduExpForm}
@@ -125,7 +125,7 @@ class App extends Component {
           generalInfo={this.state.generalInfo}
           editGenInfo={this.displayGenInfoForm}
           eduInfo={this.state.eduExp}
-          displayEduExpForm={this.displayAddEduExpForm}
+          displayAddEduExpForm={this.displayAddEduExpForm}
         />
       </div>
     );

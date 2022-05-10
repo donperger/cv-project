@@ -5,6 +5,7 @@ import Cv from './components/CV';
 import uniqid from 'uniqid';
 import AddEduExp from './components/AddEduExp';
 import UpdateEduExp from './components/UpdateEduExp';
+import AddWorkExp from './components/AddWorkExp';
 
 class App extends Component {
   constructor() {
@@ -43,6 +44,7 @@ class App extends Component {
           },
         },
       ],
+      showAddWorkExpForm: false,
       practicalExp: [
         {
           id: uniqid(),
@@ -143,6 +145,15 @@ class App extends Component {
     this.setState({ eduExp: updatedExoEduArray });
   };
 
+  displayAddWorkForm = () => {
+    this.setState({ showAddWorkExpForm: !this.state.showAddWorkExpForm });
+  };
+
+  addWork = (workExpInfo) => {
+    workExpInfo.id = uniqid();
+    this.setState({ practicalExp: [...this.state.practicalExp, workExpInfo] });
+  };
+
   render() {
     return (
       <div className="App">
@@ -172,6 +183,12 @@ class App extends Component {
               hideForm={this.hideEditEduExpForm}
             />
           )}
+          {this.state.showAddWorkExpForm && (
+            <AddWorkExp
+              addWork={this.addWork}
+              hideForm={this.displayAddWorkForm}
+            />
+          )}
         </div>
 
         <Cv
@@ -180,6 +197,8 @@ class App extends Component {
           eduInfo={this.state.eduExp}
           displayAddEduExpForm={this.displayAddEduExpForm}
           displayEditEduExpForm={this.displayEditEduExpForm}
+          workExp={this.state.practicalExp}
+          displayAddWorkFrom={this.displayAddWorkForm}
         />
       </div>
     );

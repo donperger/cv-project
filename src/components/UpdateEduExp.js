@@ -32,26 +32,27 @@ class UpdateEduExp extends Component {
   submitStudies = (e) => {
     e.preventDefault();
 
-    const updatedStudy = {
-      schoolName: this.state.nameOfSchool,
-      titleOfStudy: this.state.titleOfStudy,
-      dateOfStudy: {
-        start: this.state.startDate,
-        end: this.state.endDate,
-      },
-    };
+    if (e.target.className === 'submit-study-btn') {
+      const updatedStudy = {
+        schoolName: this.state.nameOfSchool,
+        titleOfStudy: this.state.titleOfStudy,
+        dateOfStudy: {
+          start: this.state.startDate,
+          end: this.state.endDate,
+        },
+      };
 
-    this.props.updateStudy(updatedStudy);
+      this.props.updateStudy(updatedStudy);
+    } else {
+      this.props.updateStudy(false);
+    }
 
     this.props.hideForm();
   };
 
   render() {
     return (
-      <form
-        className="educational-experience-form"
-        onSubmit={this.submitStudies}
-      >
+      <form className="educational-experience-form">
         <legend>Edit educational experience</legend>
         <div className="school-name">
           <label>
@@ -83,7 +84,12 @@ class UpdateEduExp extends Component {
           endDate={this.props.endDate}
         />
         <div className="study-date"></div>
-        <button className="submit-study-btn">Update study</button>
+        <button className="submit-study-btn" onClick={this.submitStudies}>
+          Update study
+        </button>
+        <button className="delete-study-btn" onClick={this.submitStudies}>
+          Delete study
+        </button>
       </form>
     );
   }

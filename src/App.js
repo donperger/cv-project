@@ -4,7 +4,7 @@ import GeneralInfo from './components/GeneralInfo';
 import Cv from './components/CV';
 import uniqid from 'uniqid';
 import AddEduExp from './components/AddEduExp';
-import UpdateEduExp from './components/UpdateEduExp ';
+import UpdateEduExp from './components/UpdateEduExp';
 
 class App extends Component {
   constructor() {
@@ -118,15 +118,27 @@ class App extends Component {
 
   updadateEduExp = (eduInfo) => {
     const eduExpArray = this.state.eduExp;
-    eduInfo.id = this.state.eduExpToUpdate.id;
+    let updatedExoEduArray;
 
-    const updatedExoEduArray = eduExpArray.map((eduExp) => {
-      if (eduExp.id === this.state.eduExpToUpdate.id) {
-        return eduInfo;
-      } else {
-        return eduExp;
-      }
-    });
+    if (eduInfo) {
+      eduInfo.id = this.state.eduExpToUpdate.id;
+
+      updatedExoEduArray = eduExpArray.map((eduExp) => {
+        if (eduExp.id === this.state.eduExpToUpdate.id) {
+          return eduInfo;
+        } else {
+          return eduExp;
+        }
+      });
+    } else {
+      updatedExoEduArray = eduExpArray.filter((eduExp) => {
+        if (eduExp.id !== this.state.eduExpToUpdate.id) {
+          return true;
+        } else {
+          return false;
+        }
+      });
+    }
 
     this.setState({ eduExp: updatedExoEduArray });
   };

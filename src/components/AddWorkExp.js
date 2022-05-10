@@ -50,7 +50,7 @@ class AddWorkExp extends Component {
     e.preventDefault();
 
     const workInfo = {
-      comanyName: this.state.comanyName,
+      companyName: this.state.companyName,
       position: this.state.position,
       mainTask: this.state.mainTask,
       date: this.state.date,

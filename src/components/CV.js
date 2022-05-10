@@ -38,28 +38,30 @@ class Cv extends Component {
               <img className="add-img" src={addIcon}></img>
             </button>
             {this.props.eduInfo.map((info) => {
-              return (
-                <li key={info.id}>
-                  <div className="school-name">
-                    {info.schoolName}
-                    <button
-                      className="edit-btn"
-                      id={info.id}
-                      onClick={this.props.displayEditEduExpForm}
-                    >
-                      <img className="edit-img" src={editIcon}></img>
-                    </button>
-                  </div>
-                  <div className="school-info">
-                    <span>{info.titleOfStudy}</span>
-                    {' - '}
-                    <span>
-                      {format(info.dateOfStudy.start, 'MMMM, y')} -
-                      {format(info.dateOfStudy.end, 'MMMM, y')}
-                    </span>
-                  </div>
-                </li>
-              );
+              if (info.schoolName) {
+                return (
+                  <li key={info.id}>
+                    <div className="school-name">
+                      {info.schoolName}
+                      <button
+                        className="edit-btn"
+                        id={info.id}
+                        onClick={this.props.displayEditEduExpForm}
+                      >
+                        <img className="edit-img" src={editIcon}></img>
+                      </button>
+                    </div>
+                    <div className="school-info">
+                      <span>{info.titleOfStudy}</span>
+                      {' - '}
+                      <span>
+                        {format(info.dateOfStudy.start, 'MMMM, y')} -
+                        {format(info.dateOfStudy.end, 'MMMM, y')}
+                      </span>
+                    </div>
+                  </li>
+                );
+              }
             })}
           </ul>
         </div>
@@ -71,26 +73,32 @@ class Cv extends Component {
               <img className="add-img" src={addIcon}></img>
             </button>
             {this.props.workExp.map((workPlace) => {
-              return (
-                <li key={workPlace.id}>
-                  <div className="company-info">
-                    <span className="company-name">
-                      {workPlace.companyName}
-                    </span>
-                    {' - '}
-                    <span className="positon">{workPlace.position}</span>
-                    <button className="edit-btn" id={workPlace.id}>
-                      <img className="edit-img" src={editIcon}></img>
-                    </button>
-                  </div>
-                  <div className="task">{workPlace.mainTask}</div>
-                  <div className="time-interval">
-                    {format(workPlace.date.start, 'MMMM, y')}
-                    {' - '}
-                    {format(workPlace.date.end, 'MMMM, y')}
-                  </div>
-                </li>
-              );
+              if (workPlace.companyName) {
+                return (
+                  <li key={workPlace.id}>
+                    <div className="company-info">
+                      <span className="company-name">
+                        {workPlace.companyName}
+                      </span>
+                      {' - '}
+                      <span className="positon">{workPlace.position}</span>
+                      <button
+                        className="edit-btn"
+                        id={workPlace.id}
+                        onClick={this.props.displayUpdateWorkForm}
+                      >
+                        <img className="edit-img" src={editIcon}></img>
+                      </button>
+                    </div>
+                    <div className="task">{workPlace.mainTask}</div>
+                    <div className="time-interval">
+                      {format(workPlace.date.start, 'MMMM, y')}
+                      {' - '}
+                      {format(workPlace.date.end, 'MMMM, y')}
+                    </div>
+                  </li>
+                );
+              }
             })}
           </ul>
         </div>

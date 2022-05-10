@@ -6,53 +6,56 @@ import uniqid from 'uniqid';
 import AddEduExp from './components/AddEduExp';
 import UpdateEduExp from './components/UpdateEduExp';
 import AddWorkExp from './components/AddWorkExp';
+import UpdateWorkExp from './components/UpdateWorkExp';
 
 class App extends Component {
   constructor() {
     super();
 
     this.state = {
-      showGeneralInfoForm: false,
+      showGeneralInfoForm: true,
       generalInfo: [
         {
           fieldName: 'Name',
-          fieldValue: 'Jacob Gipsz',
+          fieldValue: '',
           id: uniqid(),
         },
         {
           fieldName: 'E-mail',
-          fieldValue: 'jack.gipsz@example.com',
+          fieldValue: '',
           id: uniqid(),
         },
         {
           fieldName: 'Phone Number',
-          fieldValue: '+36234568945',
+          fieldValue: '',
           id: uniqid(),
         },
       ],
-      showAddEduExpForm: false,
+      showAddEduExpForm: true,
       isEduExpUpdate: false,
       eduExpToUpdate: {},
       eduExp: [
         {
           id: uniqid(),
-          schoolName: 'University of Technology',
-          titleOfStudy: 'Computer science',
+          schoolName: '',
+          titleOfStudy: '',
           dateOfStudy: {
-            start: new Date(2016, 8),
-            end: new Date(2020, 5),
+            start: new Date(),
+            end: new Date(),
           },
         },
       ],
-      showAddWorkExpForm: false,
+      showAddWorkExpForm: true,
+      isWorkExpUpdate: false,
+      workToUpdate: {},
       practicalExp: [
         {
           id: uniqid(),
-          companyName: 'IT Giants',
-          position: 'Junior web developer',
-          mainTask: 'Create new web applications',
+          companyName: '',
+          position: '',
+          mainTask: '',
           date: {
-            start: new Date(2020, 8),
+            start: new Date(),
             end: new Date(),
           },
         },
@@ -154,6 +157,48 @@ class App extends Component {
     this.setState({ practicalExp: [...this.state.practicalExp, workExpInfo] });
   };
 
+  displayUpdateWorkExpForm = (e) => {
+    this.setState({ isWorkExpUpdate: !this.state.isWorkExpUpdate });
+    const workToEdit = this.getWorkExp(e.currentTarget.id)[0];
+    this.setState({ workToUpdate: workToEdit });
+  };
+
+  getWorkExp = (id) => {
+    return this.state.practicalExp.filter((item) => item.id === id);
+  };
+
+  updateWorkExp = (workExpInfo) => {
+    const practicalExp = this.state.practicalExp;
+    let updatedPracticalExp;
+
+    if (workExpInfo) {
+      workExpInfo.id = this.state.workToUpdate.id;
+
+      updatedPracticalExp = practicalExp.map((workExp) => {
+        if (workExp.id === workExpInfo.id) {
+          return workExpInfo;
+        } else {
+          return workExp;
+        }
+      });
+    } else {
+      updatedPracticalExp = practicalExp.filter((workExp) => {
+        if (workExp.id !== this.state.workToUpdate.id) {
+          return true;
+        } else {
+          return false;
+        }
+      });
+    }
+
+    this.setState({ practicalExp: updatedPracticalExp });
+  };
+
+  hideWorkForm = () => {
+    this.setState({ isWorkExpUpdate: !this.state.isWorkExpUpdate });
+    this.setState({ workToUpdate: '' });
+  };
+
   render() {
     return (
       <div className="App">
@@ -189,6 +234,16 @@ class App extends Component {
               hideForm={this.displayAddWorkForm}
             />
           )}
+          {this.state.isWorkExpUpdate && (
+            <UpdateWorkExp
+              companyName={this.state.workToUpdate.companyName}
+              position={this.state.workToUpdate.position}
+              mainTask={this.state.workToUpdate.mainTask}
+              date={this.state.workToUpdate.date}
+              updateWork={this.updateWorkExp}
+              hideForm={this.hideWorkForm}
+            />
+          )}
         </div>
 
         <Cv
@@ -199,6 +254,7 @@ class App extends Component {
           displayEditEduExpForm={this.displayEditEduExpForm}
           workExp={this.state.practicalExp}
           displayAddWorkFrom={this.displayAddWorkForm}
+          displayUpdateWorkForm={this.displayUpdateWorkExpForm}
         />
       </div>
     );

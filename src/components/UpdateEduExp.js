@@ -87,10 +87,10 @@ class UpdateEduExp extends Component {
         />
         <div className="btn-container">
           <button className="submit-study-btn" onClick={this.submitStudies}>
-            Update study
+            Update
           </button>
           <button className="delete-study-btn" onClick={this.submitStudies}>
-            Delete study
+            Delete
           </button>
         </div>
       </form>

@@ -114,7 +114,7 @@ class UpdateWorkExp extends Component {
             className="submit-work-btn"
             onClick={this.submitWorkExperiance}
           >
-            Edit
+            Update
           </button>
           <button
             className="delete-work-btn"

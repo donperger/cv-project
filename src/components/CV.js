@@ -55,8 +55,11 @@ class Cv extends Component {
                       <span>{info.titleOfStudy}</span>
                       {' - '}
                       <span>
-                        {format(info.dateOfStudy.start, 'MMMM, y')} -
-                        {format(info.dateOfStudy.end, 'MMMM, y')}
+                        {format(info.dateOfStudy.start, 'MMMM, y')}
+                        {' - '}
+                        {info.dateOfStudy.end &&
+                          format(info.dateOfStudy.end, 'MMMM, y')}
+                        {!info.dateOfStudy.end && 'now'}
                       </span>
                     </div>
                   </li>
@@ -100,7 +103,9 @@ class Cv extends Component {
                     <div className="time-interval">
                       {format(workPlace.date.start, 'MMMM, y')}
                       {' - '}
-                      {format(workPlace.date.end, 'MMMM, y')}
+                      {workPlace.date.end &&
+                        format(workPlace.date.end, 'MMMM, y')}
+                      {!workPlace.date.end && 'now'}
                     </div>
                   </li>
                 );

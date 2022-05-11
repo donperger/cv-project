@@ -12,31 +12,31 @@ class Cv extends Component {
   render() {
     return (
       <div className="cv">
-        <div className="cv-general-info">
+        <div className="general-info">
           <ul>
-            General Info
-            <button onClick={this.props.editGenInfo}>
-              <img className="edit-img" src={editIcon}></img>
-            </button>
             {this.props.generalInfo.map((info) => {
-              return (
-                <li key={info.id}>
-                  {info.fieldName}: {info.fieldValue}
-                </li>
-              );
+              return <li key={info.id}>{info.fieldValue}</li>;
             })}
           </ul>
+          <button
+            className="gen-info-edit-btn"
+            onClick={this.props.editGenInfo}
+          >
+            <img className="edit-img" src={editIcon}></img>
+          </button>
         </div>
 
         <div className="edu-exp-info">
           <ul>
-            Education
-            <button
-              className="add-btn"
-              onClick={this.props.displayAddEduExpForm}
-            >
-              <img className="add-img" src={addIcon}></img>
-            </button>
+            <div className="section-name">
+              Education
+              <button
+                className="add-btn"
+                onClick={this.props.displayAddEduExpForm}
+              >
+                <img className="add-img" src={addIcon}></img>
+              </button>
+            </div>
             {this.props.eduInfo.map((info) => {
               if (info.schoolName) {
                 return (
@@ -68,10 +68,16 @@ class Cv extends Component {
 
         <div className="work-exp-info">
           <ul>
-            Practical experience
-            <button className="add-btn" onClick={this.props.displayAddWorkFrom}>
-              <img className="add-img" src={addIcon}></img>
-            </button>
+            <div className="section-name">
+              Practical experience
+              <button
+                className="add-btn"
+                onClick={this.props.displayAddWorkFrom}
+              >
+                <img className="add-img" src={addIcon} />
+              </button>
+            </div>
+
             {this.props.workExp.map((workPlace) => {
               if (workPlace.companyName) {
                 return (

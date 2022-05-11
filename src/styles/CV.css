@@ -1,8 +1,84 @@
+:root {
+  --cv-bg-clr: #fff;
+  --general-info-bg-clr: #32d9ba;
+}
+
+.cv {
+  box-sizing: border-box;
+  background-color: var(--cv-bg-clr);
+  width: 75%;
+  height: min(85%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cv button {
+  box-sizing: border-box;
+  cursor: pointer;
+  height: 100%;
+  border: 0.2rem solid rgba(0, 0, 0, 0);
+  padding: 0.2rem 0.5rem;
+}
+
+.cv button:hover {
+  border: 0.2rem solid rgba(0, 0, 0, 1);
+}
+
+ul {
+  padding-left: 0;
+  margin: 0;
+}
+
+li {
+  list-style-type: none;
+}
+
+li:first-child {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.general-info {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  background-color: var(--general-info-bg-clr);
+  padding: 0.2rem 1rem;
+  width: 100%;
+}
+
+.general-info li {
+  box-sizing: border-box;
+  margin: 0.5rem;
+}
+
+.gen-info-edit-btn {
+  margin-left: auto;
+  background-color: var(--general-info-bg-clr);
+}
+
 .edit-img,
 .add-img {
   height: 1rem;
 }
 
-li {
-  list-style-type: none;
+.edu-exp-info,
+.work-exp-info {
+  box-sizing: border-box;
+  padding: 1rem;
+  width: 95%;
+  border-bottom: 0.1rem solid rgba(65, 105, 225, 0.3);
+}
+
+.section-name {
+  display: flex;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+.section-name button,
+.edit-btn {
+  margin-left: auto;
+  background-color: var(--cv-bg-clr);
 }

@@ -1,0 +1,55 @@
+:root {
+  --form-bg-clr: #fff;
+  --dark-btn-clr: #2ea690;
+  --light-btn-clr: #32d9ba;
+}
+
+form {
+  box-sizing: border-box;
+  padding: 1rem;
+  background-color: var(--form-bg-clr);
+  border: 0.2rem solid #000;
+  border-radius: 1rem;
+  margin: 1rem;
+}
+
+form legend {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+form div {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.2rem;
+}
+
+form button {
+  box-sizing: border-box;
+  cursor: pointer;
+  background: linear-gradient(
+    to bottom,
+    var(--dark-btn-clr) 5%,
+    var(--light-btn-clr) 100%
+  );
+  background-color: var(--light-btn-clr);
+  border: 0.15rem solid #000;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  padding: 0.2rem 0.5rem;
+  margin: 0.5rem 0;
+}
+
+form button:hover {
+  background: linear-gradient(
+    to bottom,
+    var(--light-btn-clr) 5%,
+    var(--dark-btn-clr) 100%
+  );
+}
+
+form button:active {
+  position: relative;
+  top: 0.15rem;
+}

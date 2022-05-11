@@ -7,6 +7,7 @@ import AddEduExp from './components/AddEduExp';
 import UpdateEduExp from './components/UpdateEduExp';
 import AddWorkExp from './components/AddWorkExp';
 import UpdateWorkExp from './components/UpdateWorkExp';
+import gitHubIcon from './images/icons8-github.svg';
 
 class App extends Component {
   constructor() {
@@ -202,60 +203,74 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="forms">
-          {this.state.showGeneralInfoForm && (
-            <GeneralInfo
-              name={this.state.generalInfo[0]}
-              email={this.state.generalInfo[1]}
-              phoneNum={this.state.generalInfo[2]}
-              updateGenInfo={this.updateGenInfo}
-              hideForm={this.displayGenInfoForm}
-            />
-          )}
-          {this.state.showAddEduExpForm && (
-            <AddEduExp
-              addStudy={this.addEduExp}
-              hideForm={this.displayAddEduExpForm}
-            />
-          )}
-          {this.state.isEduExpUpdate && (
-            <UpdateEduExp
-              school={this.state.eduExpToUpdate.schoolName}
-              study={this.state.eduExpToUpdate.titleOfStudy}
-              startDate={this.state.eduExpToUpdate.dateOfStudy.start}
-              endDate={this.state.eduExpToUpdate.dateOfStudy.end}
-              updateStudy={this.updadateEduExp}
-              hideForm={this.hideEditEduExpForm}
-            />
-          )}
-          {this.state.showAddWorkExpForm && (
-            <AddWorkExp
-              addWork={this.addWork}
-              hideForm={this.displayAddWorkForm}
-            />
-          )}
-          {this.state.isWorkExpUpdate && (
-            <UpdateWorkExp
-              companyName={this.state.workToUpdate.companyName}
-              position={this.state.workToUpdate.position}
-              mainTask={this.state.workToUpdate.mainTask}
-              date={this.state.workToUpdate.date}
-              updateWork={this.updateWorkExp}
-              hideForm={this.hideWorkForm}
-            />
-          )}
+        <header className="header">
+          <div className="app-name">Create you CV</div>
+        </header>
+
+        <div className="app-content">
+          <div className="forms">
+            {this.state.showGeneralInfoForm && (
+              <GeneralInfo
+                name={this.state.generalInfo[0]}
+                email={this.state.generalInfo[1]}
+                phoneNum={this.state.generalInfo[2]}
+                updateGenInfo={this.updateGenInfo}
+                hideForm={this.displayGenInfoForm}
+              />
+            )}
+            {this.state.showAddEduExpForm && (
+              <AddEduExp
+                addStudy={this.addEduExp}
+                hideForm={this.displayAddEduExpForm}
+              />
+            )}
+            {this.state.isEduExpUpdate && (
+              <UpdateEduExp
+                school={this.state.eduExpToUpdate.schoolName}
+                study={this.state.eduExpToUpdate.titleOfStudy}
+                startDate={this.state.eduExpToUpdate.dateOfStudy.start}
+                endDate={this.state.eduExpToUpdate.dateOfStudy.end}
+                updateStudy={this.updadateEduExp}
+                hideForm={this.hideEditEduExpForm}
+              />
+            )}
+            {this.state.showAddWorkExpForm && (
+              <AddWorkExp
+                addWork={this.addWork}
+                hideForm={this.displayAddWorkForm}
+              />
+            )}
+            {this.state.isWorkExpUpdate && (
+              <UpdateWorkExp
+                companyName={this.state.workToUpdate.companyName}
+                position={this.state.workToUpdate.position}
+                mainTask={this.state.workToUpdate.mainTask}
+                date={this.state.workToUpdate.date}
+                updateWork={this.updateWorkExp}
+                hideForm={this.hideWorkForm}
+              />
+            )}
+          </div>
+
+          <Cv
+            generalInfo={this.state.generalInfo}
+            editGenInfo={this.displayGenInfoForm}
+            eduInfo={this.state.eduExp}
+            displayAddEduExpForm={this.displayAddEduExpForm}
+            displayEditEduExpForm={this.displayEditEduExpForm}
+            workExp={this.state.practicalExp}
+            displayAddWorkFrom={this.displayAddWorkForm}
+            displayUpdateWorkForm={this.displayUpdateWorkExpForm}
+          />
         </div>
 
-        <Cv
-          generalInfo={this.state.generalInfo}
-          editGenInfo={this.displayGenInfoForm}
-          eduInfo={this.state.eduExp}
-          displayAddEduExpForm={this.displayAddEduExpForm}
-          displayEditEduExpForm={this.displayEditEduExpForm}
-          workExp={this.state.practicalExp}
-          displayAddWorkFrom={this.displayAddWorkForm}
-          displayUpdateWorkForm={this.displayUpdateWorkExpForm}
-        />
+        <footer className="footer-container">
+          by
+          <a className="github-link" href="https://github.com/donperger">
+            DonPerger
+          </a>
+          <img className="github-icon" src={gitHubIcon} alt="GitHub icon" />
+        </footer>
       </div>
     );
   }

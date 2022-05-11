@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import '../styles/MonthPicker.css';
 
 class MonthPicker extends Component {
   constructor(props) {
@@ -34,7 +35,7 @@ class MonthPicker extends Component {
 
   render() {
     return (
-      <div>
+      <div className="month-picker">
         <div className="start-date">
           <span>Start date</span>
           <DatePicker

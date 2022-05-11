@@ -56,7 +56,8 @@ class UpdateEduExp extends Component {
         <legend>Edit educational experience</legend>
         <div className="school-name">
           <label>
-            Name of school
+            <div>Name of school</div>
+
             <input
               type="text"
               id="schoolName"
@@ -68,7 +69,8 @@ class UpdateEduExp extends Component {
 
         <div className="study-name">
           <label>
-            Title of study
+            <div>Title of study</div>
+
             <input
               type="text"
               id="titleOfStudy"
@@ -83,13 +85,14 @@ class UpdateEduExp extends Component {
           startDate={this.props.startDate}
           endDate={this.props.endDate}
         />
-        <div className="study-date"></div>
-        <button className="submit-study-btn" onClick={this.submitStudies}>
-          Update study
-        </button>
-        <button className="delete-study-btn" onClick={this.submitStudies}>
-          Delete study
-        </button>
+        <div className="btn-container">
+          <button className="submit-study-btn" onClick={this.submitStudies}>
+            Update study
+          </button>
+          <button className="delete-study-btn" onClick={this.submitStudies}>
+            Delete study
+          </button>
+        </div>
       </form>
     );
   }

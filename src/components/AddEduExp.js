@@ -50,7 +50,8 @@ class AddEduExp extends Component {
         <legend>Add educational experience</legend>
         <div className="school-name">
           <label>
-            Name of school
+            <div>Name of school</div>
+
             <input
               type="text"
               id="schoolName"
@@ -61,7 +62,8 @@ class AddEduExp extends Component {
 
         <div className="study-name">
           <label>
-            Title of study
+            <div>Title of study</div>
+
             <input
               type="text"
               id="titleOfStudy"
@@ -73,7 +75,6 @@ class AddEduExp extends Component {
           setStartDate={this.setStartDate}
           setEndDate={this.setEndDate}
         />
-        <div className="study-date"></div>
         <button className="submit-study-btn">Add study</button>
       </form>
     );

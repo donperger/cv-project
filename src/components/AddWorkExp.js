@@ -66,7 +66,8 @@ class AddWorkExp extends Component {
         <legend>Add work experiance</legend>
         <div className="company-name">
           <label>
-            Name of company
+            <div>Name of company</div>
+
             <input
               type="text"
               id="comanyName"
@@ -77,14 +78,16 @@ class AddWorkExp extends Component {
 
         <div className="job-title">
           <label>
-            Position
+            <div>Position</div>
+
             <input type="text" id="position" onChange={this.updatePosition} />
           </label>
         </div>
 
         <div className="main-task">
           <label>
-            Main task
+            <div>Main task</div>
+
             <input type="text" id="mainTask" onChange={this.updateTask} />
           </label>
         </div>
@@ -92,7 +95,6 @@ class AddWorkExp extends Component {
           setStartDate={this.setStartDate}
           setEndDate={this.setEndDate}
         />
-        <div className="study-date"></div>
         <button
           className="submit-study-btn"
           onClick={this.submitWorkExperiance}

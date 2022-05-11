@@ -67,7 +67,8 @@ class UpdateWorkExp extends Component {
         <legend>Edit work experience</legend>
         <div className="company-name">
           <label>
-            Name of company
+            <div>Name of company</div>
+
             <input
               type="text"
               id="comanyName"
@@ -79,7 +80,8 @@ class UpdateWorkExp extends Component {
 
         <div className="job-title">
           <label>
-            Position
+            <div>Position</div>
+
             <input
               type="text"
               id="position"
@@ -91,7 +93,8 @@ class UpdateWorkExp extends Component {
 
         <div className="main-task">
           <label>
-            Main task
+            <div>Main task</div>
+
             <input
               type="text"
               id="mainTask"
@@ -106,13 +109,20 @@ class UpdateWorkExp extends Component {
           startDate={this.state.date.start}
           endDate={this.state.date.end}
         />
-        <div className="study-date"></div>
-        <button className="submit-work-btn" onClick={this.submitWorkExperiance}>
-          Edit
-        </button>
-        <button className="delete-work-btn" onClick={this.submitWorkExperiance}>
-          Delete
-        </button>
+        <div className="btn-container">
+          <button
+            className="submit-work-btn"
+            onClick={this.submitWorkExperiance}
+          >
+            Edit
+          </button>
+          <button
+            className="delete-work-btn"
+            onClick={this.submitWorkExperiance}
+          >
+            Delete
+          </button>
+        </div>
       </form>
     );
   }

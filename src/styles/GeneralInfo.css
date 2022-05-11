@@ -11,7 +11,7 @@ form {
   border: 0.2rem solid #000;
   border-radius: 1rem;
   margin: 1rem;
-  width: 150%;
+  width: 100%;
 }
 
 form legend {
@@ -20,7 +20,7 @@ form legend {
   margin-bottom: 0.5rem;
 }
 
-form div {
+form > div {
   display: flex;
   flex-direction: column;
   margin-bottom: 0.2rem;

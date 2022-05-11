@@ -52,8 +52,12 @@ class Cv extends Component {
                       </button>
                     </div>
                     <div className="school-info">
-                      <span>{info.titleOfStudy}</span>
-                      {' - '}
+                      {info.titleOfStudy && (
+                        <span>
+                          {info.titleOfStudy}
+                          {' - '}
+                        </span>
+                      )}
                       <span>
                         {format(info.dateOfStudy.start, 'MMMM, y')}
                         {' - '}
@@ -89,8 +93,12 @@ class Cv extends Component {
                       <span className="company-name">
                         {workPlace.companyName}
                       </span>
-                      {' - '}
-                      <span className="positon">{workPlace.position}</span>
+                      {workPlace.position && (
+                        <span className="positon">
+                          {' - '}
+                          {workPlace.position}
+                        </span>
+                      )}
                       <button
                         className="edit-btn"
                         id={workPlace.id}

@@ -53,3 +53,14 @@ form button:active {
   position: relative;
   top: 0.15rem;
 }
+
+.btn-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.submit-study-btn,
+.delete-study-btn {
+  width: 5rem;
+}

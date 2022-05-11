@@ -45,7 +45,7 @@ class GeneralInfo extends Component {
         <legend>General information</legend>
         <div className="name-cont">
           <label>
-            Name
+            <div>Name</div>
             <input
               type="text"
               id="name"
@@ -57,7 +57,7 @@ class GeneralInfo extends Component {
 
         <div className="email-cont">
           <label>
-            E-mail
+            <div>E-mail</div>
             <input
               type="text"
               id="email"
@@ -69,7 +69,7 @@ class GeneralInfo extends Component {
 
         <div className="phone-cont">
           <label>
-            Phone Number
+            <div>Phone Number</div>
             <input
               type="text"
               id="phone"
@@ -79,7 +79,7 @@ class GeneralInfo extends Component {
           </label>
         </div>
 
-        <button>Submit change</button>
+        <button>Update</button>
       </form>
     );
   }

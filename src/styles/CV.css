@@ -7,7 +7,7 @@
   box-sizing: border-box;
   background-color: var(--cv-bg-clr);
   width: 75%;
-  height: min(85%);
+  height: min(45rem);
   display: flex;
   flex-direction: column;
   align-items: center;

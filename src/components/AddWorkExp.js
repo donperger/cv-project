@@ -95,10 +95,7 @@ class AddWorkExp extends Component {
           setStartDate={this.setStartDate}
           setEndDate={this.setEndDate}
         />
-        <button
-          className="submit-study-btn"
-          onClick={this.submitWorkExperiance}
-        >
+        <button className="add-study-btn" onClick={this.submitWorkExperiance}>
           Add practical experiance
         </button>
       </form>

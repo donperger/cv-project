@@ -75,7 +75,7 @@ class AddEduExp extends Component {
           setStartDate={this.setStartDate}
           setEndDate={this.setEndDate}
         />
-        <button className="submit-study-btn">Add study</button>
+        <button className="add-study-btn">Add study</button>
       </form>
     );
   }

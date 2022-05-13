@@ -49,6 +49,7 @@ class GeneralInfo extends Component {
             <input
               type="text"
               id="name"
+              required
               defaultValue={name.fieldValue}
               onChange={this.handleChange}
             />
@@ -59,8 +60,9 @@ class GeneralInfo extends Component {
           <label>
             <div>E-mail</div>
             <input
-              type="text"
+              type="email"
               id="email"
+              required
               defaultValue={email.fieldValue}
               onChange={this.handleChange}
             />

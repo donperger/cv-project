@@ -72,6 +72,7 @@ class UpdateWorkExp extends Component {
             <input
               type="text"
               id="comanyName"
+              required
               defaultValue={this.state.companyName}
               onChange={this.updateCompanyName}
             />
@@ -85,6 +86,7 @@ class UpdateWorkExp extends Component {
             <input
               type="text"
               id="position"
+              required
               defaultValue={this.state.position}
               onChange={this.updatePosition}
             />

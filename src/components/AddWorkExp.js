@@ -71,6 +71,7 @@ class AddWorkExp extends Component {
             <input
               type="text"
               id="comanyName"
+              required
               onChange={this.updateCompanyName}
             />
           </label>
@@ -80,7 +81,12 @@ class AddWorkExp extends Component {
           <label>
             <div>Position</div>
 
-            <input type="text" id="position" onChange={this.updatePosition} />
+            <input
+              type="text"
+              id="position"
+              required
+              onChange={this.updatePosition}
+            />
           </label>
         </div>
 

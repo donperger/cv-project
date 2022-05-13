@@ -55,6 +55,7 @@ class AddEduExp extends Component {
             <input
               type="text"
               id="schoolName"
+              required
               onChange={this.updateSchoolName}
             />
           </label>
@@ -67,6 +68,7 @@ class AddEduExp extends Component {
             <input
               type="text"
               id="titleOfStudy"
+              required
               onChange={this.updateTitleOfStudy}
             />
           </label>

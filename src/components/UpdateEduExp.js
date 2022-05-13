@@ -61,6 +61,7 @@ class UpdateEduExp extends Component {
             <input
               type="text"
               id="schoolName"
+              required
               defaultValue={this.state.nameOfSchool}
               onChange={this.updateSchoolName}
             />

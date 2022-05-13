@@ -15,10 +15,20 @@ class AddEduExp extends Component {
 
   updateSchoolName = (e) => {
     this.setState({ nameOfSchool: e.target.value });
+    if (e.target.validity.valueMissing) {
+      e.target.classList.add('invalid-field');
+    } else {
+      e.target.classList.remove('invalid-field');
+    }
   };
 
   updateTitleOfStudy = (e) => {
     this.setState({ titleOfStudy: e.target.value });
+    if (e.target.validity.valueMissing) {
+      e.target.classList.add('invalid-field');
+    } else {
+      e.target.classList.remove('invalid-field');
+    }
   };
 
   setStartDate = (date) => {
@@ -47,10 +57,13 @@ class AddEduExp extends Component {
         className="educational-experience-form"
         onSubmit={this.submitStudies}
       >
-        <legend>Add educational experience</legend>
+        <legend>
+          Add educational experience
+          <span className="required-text">*required</span>
+        </legend>
         <div className="school-name">
           <label>
-            <div>Name of school</div>
+            <div>Name of school*</div>
 
             <input
               type="text"
@@ -63,7 +76,7 @@ class AddEduExp extends Component {
 
         <div className="study-name">
           <label>
-            <div>Title of study</div>
+            <div>Title of study*</div>
 
             <input
               type="text"

@@ -15,10 +15,20 @@ class UpdateEduExp extends Component {
 
   updateSchoolName = (e) => {
     this.setState({ nameOfSchool: e.target.value });
+    if (e.target.validity.valueMissing) {
+      e.target.classList.add('invalid-field');
+    } else {
+      e.target.classList.remove('invalid-field');
+    }
   };
 
   updateTitleOfStudy = (e) => {
     this.setState({ titleOfStudy: e.target.value });
+    if (e.target.validity.valueMissing) {
+      e.target.classList.add('invalid-field');
+    } else {
+      e.target.classList.remove('invalid-field');
+    }
   };
 
   setStartDate = (date) => {
@@ -53,10 +63,13 @@ class UpdateEduExp extends Component {
   render() {
     return (
       <form className="educational-experience-form">
-        <legend>Edit educational experience</legend>
+        <legend>
+          Edit educational experience
+          <span className="required-text">*required</span>
+        </legend>
         <div className="school-name">
           <label>
-            <div>Name of school</div>
+            <div>Name of school*</div>
 
             <input
               type="text"
@@ -70,11 +83,12 @@ class UpdateEduExp extends Component {
 
         <div className="study-name">
           <label>
-            <div>Title of study</div>
+            <div>Title of study*</div>
 
             <input
               type="text"
               id="titleOfStudy"
+              required
               defaultValue={this.state.titleOfStudy}
               onChange={this.updateTitleOfStudy}
             />

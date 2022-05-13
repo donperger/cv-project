@@ -15,10 +15,20 @@ class UpdateWorkExp extends Component {
 
   updateCompanyName = (e) => {
     this.setState({ companyName: e.target.value });
+    if (e.target.validity.valueMissing) {
+      e.target.classList.add('invalid-field');
+    } else {
+      e.target.classList.remove('invalid-field');
+    }
   };
 
   updatePosition = (e) => {
     this.setState({ position: e.target.value });
+    if (e.target.validity.valueMissing) {
+      e.target.classList.add('invalid-field');
+    } else {
+      e.target.classList.remove('invalid-field');
+    }
   };
 
   updateTask = (e) => {
@@ -64,10 +74,13 @@ class UpdateWorkExp extends Component {
   render() {
     return (
       <form className="educational-experience-form">
-        <legend>Edit work experience</legend>
+        <legend>
+          Edit work experience
+          <span className="required-text">*required</span>
+        </legend>
         <div className="company-name">
           <label>
-            <div>Name of company</div>
+            <div>Name of company*</div>
 
             <input
               type="text"
@@ -81,7 +94,7 @@ class UpdateWorkExp extends Component {
 
         <div className="job-title">
           <label>
-            <div>Position</div>
+            <div>Position*</div>
 
             <input
               type="text"

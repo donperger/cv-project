@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/cv-project/static/css/main.b4c563ca.css",
+    "main.js": "/cv-project/static/js/main.6cf67d10.js",
+    "static/media/edit-svgrepo-com.svg": "/cv-project/static/media/edit-svgrepo-com.d38576a3964b1b6dba01c185a0ec43a7.svg",
+    "static/media/icons8-github.svg": "/cv-project/static/media/icons8-github.a61b960f2ce17e7b773b7e1013673b9f.svg",
+    "static/media/add-svgrepo-com.svg": "/cv-project/static/media/add-svgrepo-com.480e63b8341af2b63aa8ba7584c665e7.svg",
+    "index.html": "/cv-project/index.html",
+    "main.b4c563ca.css.map": "/cv-project/static/css/main.b4c563ca.css.map",
+    "main.6cf67d10.js.map": "/cv-project/static/js/main.6cf67d10.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b4c563ca.css",
+    "static/js/main.6cf67d10.js"
+  ]
+}
